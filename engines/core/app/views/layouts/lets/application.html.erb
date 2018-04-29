@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LETS</title>
+  <%= stylesheet_link_tag    "lets/application", media: "all" %>
+  <%= javascript_include_tag "lets/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- Static navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <a class="navbar-brand" href="/home">LETS Analyze</a> -->
+    <%= link_to 'LETS Data', lets.root_path, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            LETS Lessons
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/design_study">Transect Design</a>
+            <a class="dropdown-item" href="/collect_data">Data Collection</a>
+            <a class="dropdown-item" href="/analyze_data">Data Analysis</a>
+            <a class="dropdown-item" href="/graph_data">Visual Analysis</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            Processed Data
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/species_count_date">
+              Species Count each Measurement Date
+            </a>
+            <a class="dropdown-item" href="/species_avg_by_date">
+              Species Count Average by Date
+            </a>
+            <a class="dropdown-item" href="/species_avg_by_year">
+              Species Count Average by Year
+            </a>
+            <a class="dropdown-item" href="/species_avg_by_decade">
+              Species Count Average by Decade
+            </a>
+            <a class="dropdown-item disabled" href="/species_longitudinal">
+              Distribution by Elevation (over Time)
+            </a>
+            <a class="dropdown-item disabled" href="/species_animated">
+              Animated Distribution by Elevation
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item disabled" href="/growth_elevation">
+              Growth Rate by Elevation
+            </a>
+            <a class="dropdown-item disabled" href="/growth_longitudinal">
+              Longitudinal Growth Rate
+            </a>
+            <a class="dropdown-item disabled" href="/growth_animated">
+              Growth Rates by Elevation (Animated over Time)
+            </a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            LETS Data
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/lets/transects">
+              Transects
+            </a>
+            <a class="dropdown-item" href="/lets/transects">
+              Plots
+            </a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <% if false %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+              <%= current_admin.name %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right"
+                                              aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/lets/admin/profile">
+                View Profile
+              </a>
+              <a class="dropdown-item" href="/lets/admin/password">
+                Change Password
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/lets/admin/index">
+                Manage Admins
+              </a>
+              <a class="dropdown-item" href="/lets/admin/privileges">
+                Manage Privileges
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/lets/admin/destroy">
+                Logout
+              </a>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link active" href="http://lets-study.ch/">
+              LETS Study
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="dropdown-item" href="/lets/login">
+              Login
+            </a>
+          </li>
+        <% end %>
+      </ul>
+      <!--
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+  </nav> <!-- Static Nav bar -->
+
+  <div class="container">
+
+    <%= yield %>
+
+  </div> <!-- /container -->
+
+</body>
+</html>
